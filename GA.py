@@ -161,7 +161,7 @@ input_size = len(data_input[0])
 hidden_size = [5,5,5,5,5,5,5,5,5,5]
 output_size = len(np.unique(data_output))
 population_size = 50
-generation = 10
+generation = 50
 Mutate_rate = 0.1
 
 Cross_Validaion(data_input,indv,input_size,hidden_size,output_size,population_size,generation,Mutate_rate)
