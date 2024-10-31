@@ -41,7 +41,7 @@ def Feed_forward(inputs,input_weight,hidden_weigh):
     final_input = np.dot(hidden_output,hidden_weigh)
     final_output = Sigmoid(final_input)
 
-    return final_input
+    return final_output
 
 def Fitness_function(inputs,indv,chromosome,input_size,hidden_size,output_size):
     input_weight , hidden_weigth = Init_Weight(chromosome,input_size,hidden_size,output_size)
@@ -147,6 +147,8 @@ def Cross_Validaion(inputs, indv, input_size, hidden_size, output_size, populati
     plt.grid(True)
     plt.show()
 
+def hidden_size(x):
+    return [x,x,x,x,x,x,x,x,x,x]
 
 
 data_output , data_input = Load_data()
@@ -158,10 +160,10 @@ indv = np.zeros((len(data_output),2))
 indv[np.arange(len(data_output)),data_output] = 1
 
 input_size = len(data_input[0])
-hidden_size = [5,5,5,5,5,5,5,5,5,5]
+hidden_size = hidden_size(100)
 output_size = len(np.unique(data_output))
 population_size = 50
-generation = 50
+generation = 60
 Mutate_rate = 0.1
 
 Cross_Validaion(data_input,indv,input_size,hidden_size,output_size,population_size,generation,Mutate_rate)
